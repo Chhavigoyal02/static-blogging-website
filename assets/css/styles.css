@@ -1,332 +1,204 @@
-/* General Styles */
-* {
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #292929;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-body {
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+header {
+    background-color: #ffffff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
 }
 
-main {
-    flex: 1;
-}
-
-/* Navigation */
-
-header nav {
-    background: #333;
-    color: white;
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-}
-
-
-header .logo {
-    font-size: 1.5rem;
-    font-weight: 600;
-}
-
-.nav-links, .navbar-item, .navbar-brand {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-}
-
-.nav-links li, .navbar-item {
-    list-style: none;
-}
-
-.nav-links li a, .navbar a {
-    color: white;
-    text-decoration: none;
-    font-weight: 400;
-    padding: 5px 10px;
-    transition: color 0.3s, background 0.3s;
-}
-
-.nav-links li a:hover, .navbar a:hover {
-    background: #444;
-    border-radius: 5px;
-}
-
-/* Hero Section */
-#hero {
-    height: 70vh;
-    background: linear-gradient(to right, #6a11cb, #2575fc);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 20px;
-}
-
-.hero-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-}
-
-.hero-content .btn {
-    background: white;
-    color: #333;
-    padding: 10px 20px;
-    text-decoration: none;
-    font-size: 1rem;
-    border-radius: 5px;
-    transition: 0.3s ease;
-}
-
-.hero-content .btn:hover {
-    background: #444;
-    color: white;
-}
-
-/* Section Styling */
-section {
-    padding: 40px 20px;
-}
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    text-align: center;
-}
-
-#about p {
-    margin-top: 10px;
-    font-size: 1.1rem;
-    color: #555;
-}
-
-/* Featured Blogs */
-.blog-header {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.blog-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.blog-header p {
-    font-size: 1.2rem;
-}
-
-.blog-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-}
-
-.blog-card {
-    background: #f4f4f4;
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 800px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: 0.3s ease;
-    width: 100%;
-}
-
-.blog-card h3 a {
-    color: #2575fc;
-    text-decoration: none;
-    font-size: 1.4rem;
-}
-
-.blog-card:hover {
-    transform: scale(1.05);
-}
-
-.blog-card p {
-    font-size: 1rem;
-    color: #555;
-}
-
-.read-more {
-    font-size: 1rem;
-    color: #2575fc;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-.read-more:hover {
-    color: #333;
-}
-
-/* Create Blog Button */
-.create-blog-section {
-    text-align: center;
-    margin-top: 40px;
-}
-
-.create-blog-section button {
-    background-color: #2575fc;
-    color: white;
-    padding: 10px 20px;
-    font-size: 1.1rem;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.create-blog-section button:hover {
-    background-color: #1a62d3;
-}
-
-/* Create Blog Form */
-#create-blog {
-    margin-top: 20px;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-#create-blog input, #create-blog textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-#create-blog button {
-    width: 100%;
-    background-color: #2575fc;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-#create-blog button:hover {
-    background-color: #1a62d3;
-}
-
-/* Contact Section */
-.contact-section {
-    background: #f7f7f7;
-    padding: 40px 20px;
-    border-radius: 10px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 50px;
+    padding: 1rem 5%;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
-.contact-section h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #333;
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #000;
 }
 
-.contact-section p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    color: #555;
-}
-
-form {
+nav ul {
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    list-style-type: none;
 }
 
-.form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+nav ul li {
+    margin-left: 2rem;
 }
 
-.form-group label {
-    font-size: 1rem;
-    color: #333;
-}
-
-.form-group input,
-.form-group textarea {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #2575fc;
-    outline: none;
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #aaa;
-}
-
-.submit-btn {
-    background: #2575fc;
-    color: white;
-    padding: 12px 20px;
-    border: none;
+nav ul li a {
+    text-decoration: none;
+    color: #292929;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    padding: 10px 15px;
     border-radius: 5px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background 0.3s ease;
 }
 
-.submit-btn:hover {
-    background: #6a11cb;
+nav ul li a:hover {
+    background-color: #e0f7fa;
+    color: #012c25;
 }
 
-.submit-btn:focus {
-    outline: none;
+main {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 0 5%;
 }
 
-
-/* Footer */
-footer {
+.hero {
     text-align: center;
-    background: #333;
-    color: white;
-    padding: 15px;
-    font-size: 0.9rem;
-    margin-top: 50px;
+    padding: 4rem 0;
 }
 
-@media screen and (max-width: 768px) {
-    .navbar {
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.featured-posts {
+    margin-top: 2rem;
+}
+
+.post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.post-card {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+}
+
+.post-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.post-card-content {
+    padding: 1rem;
+}
+
+.post-card h3 {
+    margin-top: 0;
+}
+
+.post-card p {
+    color: #757575;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    nav {
         flex-direction: column;
-        align-items: flex-start;
     }
 
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
+    nav ul {
+        margin-top: 1rem;
     }
 
-    .nav-links li {
-        text-align: left;
+    nav ul li {
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+}
+
+.read-more-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #2575fc;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.read-more-btn:hover {
+    background-color: #1a62d3;
+}
+
+.main-content {
+    margin-top: 120px;
+}
+
+/* Styles for the Create Blog page */
+form {
+    background-color: #f9f9f9; /* Light background for the form */
+    border-radius: 8px; /* Rounded corners */
+    padding: 2rem; /* Padding around the form */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    margin-top: 2rem; /* Space above the form */
+}
+
+form div {
+    margin-bottom: 1.5rem; /* Space between form fields */
+}
+
+form label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 0.5rem; /* Space below labels */
+    font-weight: bold; /* Bold labels */
+}
+
+form input[type="text"],
+form input[type="date"],
+form textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside input fields */
+    border: 1px solid #ccc; /* Border color */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+form textarea {
+    height: 100px; /* Set a height for the textarea */
+    resize: vertical; /* Allow vertical resizing */
+}
+
+form button {
+    background-color: #2575fc; /* Button background color */
+    color: white; /* Button text color */
+    padding: 10px 20px; /* Padding for the button */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+form button:hover {
+    background-color: #1a62d3; /* Darker shade on hover */
 }
