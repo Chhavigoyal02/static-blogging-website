@@ -106,6 +106,23 @@ function displayAllPosts() {
     }
 }
 
+let comments = []; // Array to store comments
+
+// Function to display comments
+function displayComments() {
+    const commentsList = document.getElementById('commentsList');
+    commentsList.innerHTML = comments.map(comment => `<p>${comment}</p>`).join('');
+}
+
+// Function to handle comment submission
+document.getElementById('commentForm')?.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const comment = document.getElementById('comment').value;
+    comments.push(comment); // Add comment to the array
+    displayComments(); // Update the comments display
+    document.getElementById('commentForm').reset(); // Reset the form
+});
+
 // Function to display a single blog post
 function displayBlogPost() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -122,8 +139,8 @@ function displayBlogPost() {
                     <img src="${post.image}" alt="${post.title}" style="max-width: 100%; height: auto;">
                     <p>${post.excerpt}</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <a href="blog-list.html" class="read-more-btn">Back to all posts</a>
                 `;
+                displayComments(); // Display comments for the post
             }
         }
     }
@@ -158,6 +175,30 @@ document.getElementById('createBlogForm')?.addEventListener('submit', function(e
     alert('Blog post created successfully!');
     window.location.href = 'blog-list.html'; // Redirect to the blog list page
 });
+
+let likeCount = 0; // Initialize like count
+
+// Function to handle like button click
+document.getElementById('likeButton')?.addEventListener('click', function() {
+    likeCount++; // Increment like count
+    document.getElementById('likeCount').innerText = likeCount; // Update like count display
+});
+
+function shareOnFacebook() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('id');
+    const post = blogPosts.find(p => p.id === parseInt(postId));
+    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
+    window.open(shareUrl, '_blank');
+}
+
+function shareOnTwitter() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const postId = urlParams.get('id');
+    const post = blogPosts.find(p => p.id === parseInt(postId));
+    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`;
+    window.open(shareUrl, '_blank');
+}
 
 // Call appropriate functions based on the current page
 if (document.body.classList.contains('home')) {
