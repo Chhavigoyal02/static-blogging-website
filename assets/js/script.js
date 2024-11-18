@@ -145,16 +145,16 @@ function displayComments() {
     commentsList.innerHTML = comments.map(comment => `<p>${comment}</p>`).join('');
     
     const commentsSection = document.getElementById('commentsSection');
-    commentsSection.classList.add('visible'); // Add visible class for slide-in effect
+    commentsSection.classList.add('visible');
 }
 
 // Function to handle comment submission
 document.getElementById('commentForm')?.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault();
     const comment = document.getElementById('comment').value;
-    comments.push(comment); // Add comment to the array
-    displayComments(); // Update the comments display
-    document.getElementById('commentForm').reset(); // Reset the form
+    comments.push(comment);
+    displayComments();
+    document.getElementById('commentForm').reset();
 });
 
 // Function to display a single blog post
@@ -174,7 +174,7 @@ function displayBlogPost() {
                     <p>${post.excerpt}</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 `;
-                displayComments(); // Display comments for the post
+                displayComments(); 
             }
         }
     }
@@ -183,46 +183,40 @@ function displayBlogPost() {
 
 // Function to handle blog creation
 document.getElementById('createBlogForm')?.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault(); 
 
-    // Get form values
     const title = document.getElementById('title').value;
     const excerpt = document.getElementById('excerpt').value;
     const image = document.getElementById('image').value;
     const author = document.getElementById('author').value;
     const date = document.getElementById('date').value;
-    const category = document.getElementById('category').value; // Get category
-    const tags = document.getElementById('tags').value.split(',').map(tag => tag.trim()); // Get tags and split into an array
-
-    // Create a new blog post object
+    const category = document.getElementById('category').value;
+    const tags = document.getElementById('tags').value.split(',').map(tag => tag.trim());
     const newPost = {
-        id: blogPosts.length + 1, // Incremental ID
+        id: blogPosts.length + 1,
         title: title,
         excerpt: excerpt,
         image: image,
         author: author,
         date: date,
-        category: category, // Add category
-        tags: tags // Add tags
+        category: category,
+        tags: tags
     };
 
-    // Add the new post to the blogPosts array
     blogPosts.push(newPost);
 
-    // Optionally, redirect to the blog list or show a success message
     alert('Blog post created successfully!');
-    window.location.href = 'blog-list.html'; // Redirect to the blog list page
+    window.location.href = 'blog-list.html'; 
 });
 
-let likeCount = 0; // Initialize like count
+let likeCount = 0;
 
 // Function to handle like button click
 document.getElementById('likeButton')?.addEventListener('click', function() {
-    likeCount++; // Increment like count
-    document.getElementById('likeCount').innerText = likeCount; // Update like count display
+    likeCount++; 
+    document.getElementById('likeCount').innerText = likeCount; 
 });
 
-// Call appropriate functions based on the current page
 if (document.body.classList.contains('home')) {
     displayFeaturedPosts();
 } else if (document.body.classList.contains('blog-list')) {
@@ -231,20 +225,5 @@ if (document.body.classList.contains('home')) {
     displayBlogPost();
 }
 
-// Function to handle login
-document.getElementById('loginForm')?.addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the default form submission
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    // Simple authentication check (you can replace this with a real authentication method)
-    if (username === 'admin' && password === 'password') {
-        localStorage.setItem('loggedIn', 'true'); // Set login status in local storage
-        alert('Login successful!');
-        window.location.href = 'index.html'; // Redirect to home page
-    } else {
-        alert('Invalid username or password.');
-    }
-});
 
 

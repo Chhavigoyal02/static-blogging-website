@@ -167,166 +167,153 @@ button {
 }
 
 button:hover {
-    background-color: #1a62d3; /* Darker shade on hover */
-    transform: scale(1.05); /* Slightly increase size on hover */
+    background-color: #1a62d3;
+    transform: scale(1.05); 
 }
 
 /* Styles for the Create Blog page */
 form {
-    background-color: #f9f9f9; /* Light background for the form */
-    border-radius: 8px; /* Rounded corners */
-    padding: 2rem; /* Padding around the form */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    margin-top: 2rem; /* Space above the form */
+    background-color: #f9f9f9;
+    border-radius: 8px; 
+    padding: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    margin-top: 2rem;
 }
 
 form div {
-    margin-bottom: 1.5rem; /* Space between form fields */
+    margin-bottom: 1.5rem; 
 }
 
 form label {
-    display: block; /* Make labels block elements */
-    margin-bottom: 0.5rem; /* Space below labels */
-    font-weight: bold; /* Bold labels */
+    display: block;
+    margin-bottom: 0.5rem; 
+    font-weight: bold; 
 }
 
 form input[type="text"],
 form input[type="date"],
 form textarea {
-    width: 100%; /* Full width */
-    padding: 10px; /* Padding inside input fields */
-    border: 1px solid #ccc; /* Border color */
-    border-radius: 4px; /* Rounded corners */
-    box-sizing: border-box; /* Include padding in width */
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 4px; 
+    box-sizing: border-box;
 }
 
 form textarea {
-    height: 100px; /* Set a height for the textarea */
-    resize: vertical; /* Allow vertical resizing */
+    height: 100px;
+    resize: vertical; 
 }
 
 form button {
-    background-color: #2575fc; /* Button background color */
-    color: white; /* Button text color */
-    padding: 10px 20px; /* Padding for the button */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition */
+    background-color: #2575fc; 
+    color: white;
+    padding: 10px 20px; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
 }
 
 form button:hover {
-    background-color: #1a62d3; /* Darker shade on hover */
+    background-color: #1a62d3;
 }
 
-/* Styles for the Like button */
 #likeButton {
-    background-color: #ff4081; /* Pink background color */
-    color: white; /* White text color */
-    padding: 10px 15px; /* Padding for the button */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
-    margin-right: 10px; /* Space between like button and like count */
+    background-color: #ff4081; 
+    color: white; 
+    padding: 10px 15px;
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-right: 10px;
 }
 
 #likeButton:hover {
-    background-color: #e91e63; /* Darker pink on hover */
+    background-color: #e91e63; 
     transform: scale(1.05);
 }
 
 .back-button-container {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: flex-end; /* Align items to the right */
-    margin-top: 20px; /* Space above the button */
+    display: flex; 
+    justify-content: flex-end; 
+    margin-top: 20px;
 }
 
-/* Styles for the search input */
 #searchInput {
-    width: 100%; /* Full width */
-    padding: 10px; /* Padding inside the input */
-    border: 1px solid #ccc; /* Border color */
-    border-radius: 5px; /* Rounded corners */
-    margin-bottom: 20px; /* Space below the input */
-    box-sizing: border-box; /* Include padding in width */
-    font-size: 16px; /* Font size */
+    width: 100%;
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    margin-bottom: 20px; 
+    box-sizing: border-box; 
+    font-size: 16px; 
 }
 
-/* Optional: Add a focus effect */
 #searchInput:focus {
-    border-color: #2575fc; /* Change border color on focus */
-    outline: none; /* Remove default outline */
+    border-color: #2575fc;
+    outline: none; 
 }
 
 /* Styles for the login page */
 .login-container {
-    display: flex; /* Use flexbox for centering */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: calc(100vh - 120px); /* Full height minus header and footer */
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: calc(100vh - 120px);
     margin-top:100px;
 }
 
 .login-form {
-    background-color: #f9f9f9; /* Light background for the form */
-    border-radius: 8px; /* Rounded corners */
-    padding: 2rem; /* Padding around the form */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    width: 100%; /* Full width */
-    max-width: 400px; /* Max width for the form */
+    background-color: #f9f9f9; 
+    border-radius: 8px; 
+    padding: 2rem; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
 }
 
 .login-form h1 {
-    text-align: center; /* Center the heading */
+    text-align: center;
 }
 
 .login-form div {
-    margin-bottom: 1.5rem; /* Space between form fields */
+    margin-bottom: 1.5rem;
 }
 
 .login-form label {
-    display: block; /* Make labels block elements */
-    margin-bottom: 0.5rem; /* Space below labels */
-    font-weight: bold; /* Bold labels */
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
 }
 
 .login-form input[type="text"],
 .login-form input[type="password"] {
-    width: 100%; /* Full width */
-    padding: 10px; /* Padding inside input fields */
-    border: 1px solid #ccc; /* Border color */
-    border-radius: 4px; /* Rounded corners */
-    box-sizing: border-box; /* Include padding in width */
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
 
 .login-form button {
-    background-color: #2575fc; /* Button background color */
-    color: white; /* Button text color */
-    padding: 10px 20px; /* Padding for the button */
-    border: none; /* Remove border */
-    border-radius: 5px; /* Rounded corners */
-    cursor: pointer; /* Pointer cursor on hover */
-    transition: background-color 0.3s ease; /* Smooth transition */
-    width: 100%; /* Full width for the button */
+    background-color: #2575fc;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
 }
 
 .login-form button:hover {
-    background-color: #1a62d3; /* Darker shade on hover */
+    background-color: #1a62d3;
 }
 
 .required {
-    color: red; /* Set the color of the asterisk to red */
-    margin-left: 5px; /* Add some space between the label and the asterisk */
+    color: red;
+    margin-left: 5px;
 }
 
-#commentsSection {
-    transform: translateY(20px); /* Start slightly below */
-    opacity: 0; /* Start hidden */
-    transition: transform 0.5s ease, opacity 0.5s ease; /* Transition for transform and opacity */
-}
-
-#commentsSection.visible {
-    transform: translateY(0); /* Slide to original position */
-    opacity: 1; /* Fully visible */
-}
