@@ -14,6 +14,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="blog-list.html">Blogs</a></li>
                 <li><a href="create-blog.html">Create Blog</a></li>
+                <li><a href="login.html">Login</a></li>
             </ul>
         </nav>
     </header>
@@ -22,24 +23,32 @@
         <h1>Create a New Blog Post</h1>
         <form id="createBlogForm">
             <div>
-                <label for="title">Title:</label>
+                <label for="title">Title:<span class="required">*</span></label>
                 <input type="text" id="title" required>
             </div>
             <div>
-                <label for="excerpt">Excerpt:</label>
+                <label for="excerpt">Excerpt:<span class="required">*</span></label>
                 <textarea id="excerpt" required></textarea>
             </div>
             <div>
-                <label for="image">Image URL:</label>
+                <label for="image">Image URL:<span class="required">*</span></label>
                 <input type="text" id="image" required>
             </div>
             <div>
-                <label for="author">Author:</label>
+                <label for="author">Author:<span class="required">*</span></label>
                 <input type="text" id="author" required>
             </div>
             <div>
-                <label for="date">Date:</label>
+                <label for="date">Date:<span class="required">*</span></label>
                 <input type="date" id="date" required>
+            </div>
+            <div>
+                <label for="category">Category:<span class="required">*</span></label>
+                <input type="text" id="category" required>
+            </div>
+            <div>
+                <label for="tags">Tags (comma-separated):</label>
+                <input type="text" id="tags" >
             </div>
             <button type="submit">Submit</button>
         </form>

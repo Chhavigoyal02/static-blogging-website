@@ -6,7 +6,9 @@ const blogPosts = [
         excerpt: "Explore the best places to study abroad, from vibrant cities to serene campuses.",
         image: "assets/images/travel-to-study.png",
         author: "Jane Doe",
-        date: "2023-05-01"
+        date: "2023-05-01",
+        category: "Travel",
+        tags: ["Study", "Travel", "Education"]
     },
     {
         id: 2,
@@ -14,7 +16,9 @@ const blogPosts = [
         excerpt: "Master the basics of cooking with these five essential techniques every chef should know.",
         image: "assets/images/cooking.png",
         author: "John Smith",
-        date: "2023-05-05"
+        date: "2023-05-05",
+        category: "Cooking",
+        tags: ["Cooking", "Food"]
     },
     {
         id: 3,
@@ -22,7 +26,9 @@ const blogPosts = [
         excerpt: "Dive into the wonders of space with this beginner's guide to the universe.",
         image: "assets/images/space.png",
         author: "Alice Johnson",
-        date: "2023-05-10"
+        date: "2023-05-10",
+        category: "Science",
+        tags: ["Science", "Space"]
     },
     {
         id: 4,
@@ -30,7 +36,9 @@ const blogPosts = [
         excerpt: "Discover how learning a new language can enhance your cognitive abilities and career prospects.",
         image: "assets/images/learning.png",
         author: "Michael Brown",
-        date: "2023-05-15"
+        date: "2023-05-15",
+        category: "Education",
+        tags: ["Education", "Language"]
     },
     {
         id: 5,
@@ -38,7 +46,9 @@ const blogPosts = [
         excerpt: "Explore the best online courses that can help you advance your career in various fields.",
         image: "assets/images/career-growth.png",
         author: "Emily Davis",
-        date: "2023-05-20"
+        date: "2023-05-20",
+        category: "Career",
+        tags: ["Career", "Online Courses"]
     },
     {
         id: 6,
@@ -46,7 +56,9 @@ const blogPosts = [
         excerpt: "Learn how to develop healthy study habits that can lead to academic success.",
         image: "assets/images/study-habits.png",
         author: "David Wilson",
-        date: "2023-05-25"
+        date: "2023-05-25",
+        category: "Education",
+        tags: ["Education", "Study Habits"]
     },
     {
         id: 7,
@@ -54,7 +66,9 @@ const blogPosts = [
         excerpt: "Discover how meditation can improve your mental health and overall well-being.",
         image: "assets/images/meditation.png",
         author: "Sarah Connor",
-        date: "2023-06-01"
+        date: "2023-06-01",
+        category: "Health",
+        tags: ["Health", "Meditation"]
     },
     {
         id: 8,
@@ -62,7 +76,9 @@ const blogPosts = [
         excerpt: "Stay ahead of the curve by understanding the latest technology trends shaping our world.",
         image: "assets/images/technology.png",
         author: "Mark Zuckerberg",
-        date: "2023-06-05"
+        date: "2023-06-05",
+        category: "Technology",
+        tags: ["Technology", "Trends"]
     },
     {
         id: 9,
@@ -70,7 +86,9 @@ const blogPosts = [
         excerpt: "Learn how to travel the world without breaking the bank with these budget-friendly tips.",
         image: "assets/images/budget-travel.png",
         author: "Emily Johnson",
-        date: "2023-06-10"
+        date: "2023-06-10",
+        category: "Travel",
+        tags: ["Travel", "Budget"]
     }
 ];
 
@@ -83,12 +101,13 @@ function createPostCard(post) {
                 <h3>${post.title}</h3>
                 <p>${post.excerpt}</p>
                 <p><small>By ${post.author} on ${post.date}</small></p>
+                <p><strong>Category:</strong> ${post.category}</p>
+                <p><strong>Tags:</strong> ${post.tags.join(', ')}</p>
                 <a href="blog-post.html?id=${post.id}" class="read-more-btn">Read more</a>
             </div>
         </div>
     `;
 }
-
 // Function to display featured posts
 function displayFeaturedPosts() {
     const featuredPostsContainer = document.getElementById('featuredPosts');
@@ -103,8 +122,20 @@ function displayAllPosts() {
     const allPostsContainer = document.getElementById('allPosts');
     if (allPostsContainer) {
         allPostsContainer.innerHTML = blogPosts.map(createPostCard).join('');
+        allPostsContainer.classList.add('visible'); // Add visible class for fade-in effect
     }
 }
+
+// Function to filter blog posts based on search input (by category or tags)
+document.getElementById('searchInput')?.addEventListener('input', function(event) {
+    const searchTerm = event.target.value.toLowerCase();
+    const filteredPosts = blogPosts.filter(post => 
+        post.category.toLowerCase().includes(searchTerm) || 
+        post.tags.some(tag => tag.toLowerCase().includes(searchTerm))
+    );
+    const allPostsContainer = document.getElementById('allPosts');
+    allPostsContainer.innerHTML = filteredPosts.map(createPostCard).join('');
+});
 
 let comments = []; // Array to store comments
 
@@ -112,6 +143,9 @@ let comments = []; // Array to store comments
 function displayComments() {
     const commentsList = document.getElementById('commentsList');
     commentsList.innerHTML = comments.map(comment => `<p>${comment}</p>`).join('');
+    
+    const commentsSection = document.getElementById('commentsSection');
+    commentsSection.classList.add('visible'); // Add visible class for slide-in effect
 }
 
 // Function to handle comment submission
@@ -157,6 +191,8 @@ document.getElementById('createBlogForm')?.addEventListener('submit', function(e
     const image = document.getElementById('image').value;
     const author = document.getElementById('author').value;
     const date = document.getElementById('date').value;
+    const category = document.getElementById('category').value; // Get category
+    const tags = document.getElementById('tags').value.split(',').map(tag => tag.trim()); // Get tags and split into an array
 
     // Create a new blog post object
     const newPost = {
@@ -165,7 +201,9 @@ document.getElementById('createBlogForm')?.addEventListener('submit', function(e
         excerpt: excerpt,
         image: image,
         author: author,
-        date: date
+        date: date,
+        category: category, // Add category
+        tags: tags // Add tags
     };
 
     // Add the new post to the blogPosts array
@@ -184,22 +222,6 @@ document.getElementById('likeButton')?.addEventListener('click', function() {
     document.getElementById('likeCount').innerText = likeCount; // Update like count display
 });
 
-function shareOnFacebook() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('id');
-    const post = blogPosts.find(p => p.id === parseInt(postId));
-    const shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`;
-    window.open(shareUrl, '_blank');
-}
-
-function shareOnTwitter() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const postId = urlParams.get('id');
-    const post = blogPosts.find(p => p.id === parseInt(postId));
-    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(window.location.href)}`;
-    window.open(shareUrl, '_blank');
-}
-
 // Call appropriate functions based on the current page
 if (document.body.classList.contains('home')) {
     displayFeaturedPosts();
@@ -208,3 +230,21 @@ if (document.body.classList.contains('home')) {
 } else if (document.body.classList.contains('blog-post')) {
     displayBlogPost();
 }
+
+// Function to handle login
+document.getElementById('loginForm')?.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    // Simple authentication check (you can replace this with a real authentication method)
+    if (username === 'admin' && password === 'password') {
+        localStorage.setItem('loggedIn', 'true'); // Set login status in local storage
+        alert('Login successful!');
+        window.location.href = 'index.html'; // Redirect to home page
+    } else {
+        alert('Invalid username or password.');
+    }
+});
+
+

@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyBlog</title>
+    <title>Login - MyBlog</title>
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body class="home">
+<body>
     <header>
         <nav>
             <div class="logo">MyBlog</div>
@@ -19,19 +19,20 @@
         </nav>
     </header>
 
-    <main>
-        <section class="hero">
-            <h1>Welcome to MyBlog</h1>
-            <p>Discover stories, thinking, and expertise from writers on any topic.</p>
-        </section>
-
-        <section class="featured-posts">
-            <h2>Featured Posts</h2>
-            <div class="post-grid" id="featuredPosts">
-                <!-- Featured posts will be dynamically inserted here -->
+    <div class="login-container">
+        <form id="loginForm" class="login-form">
+            <h1>Login</h1>
+            <div>
+                <label for="username">Username:<span class="required">*</span></label>
+                <input type="text" id="username" required>
             </div>
-        </section>
-    </main>
+            <div>
+                <label for="password">Password:<span class="required">*</span></label>
+                <input type="password" id="password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
 
     <footer>
         <p>&copy; 2024 MyBlog. All rights reserved.</p>
@@ -39,4 +40,4 @@
 
     <script src="assets/js/script.js"></script>
 </body>
-</html>
+</html> 
