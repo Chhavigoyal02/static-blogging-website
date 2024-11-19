@@ -78,11 +78,15 @@ main {
 
 .hero h1 {
     font-size: 3rem;
-    margin-bottom: 1rem;
+    margin: 1rem 0.5 rem 0 0;
+}
+.hero p{
+    font-size: 1.2rem; 
+    color: #555; 
 }
 
 .featured-posts {
-    margin-top: 2rem;
+    margin-top: 0.5rem;
 }
 
 .post-grid {
@@ -328,13 +332,13 @@ form button:hover {
 .about-us {
     background-color: white;
     padding: 2rem;
+    text-align:center;
     margin-top: 2rem;
-    text-align: center;
 }
 
 .about-us h2 {
     font-size: 2rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1rem; 
 }
 
 .about-us p {
