@@ -93,11 +93,6 @@ main {
     max-width: 1200px;
 }
 
-/* @media (max-width: 768px) {
-    .post-grid {
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    }
-} */
 
 .post-card {
     background-color: #fff;
@@ -328,5 +323,22 @@ form button:hover {
 .required {
     color: red;
     margin-left: 5px;
+}
+
+.about-us {
+    background-color: white;
+    padding: 2rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-us p {
+    font-size: 1.2rem; 
+    color: #555; 
 }
 
